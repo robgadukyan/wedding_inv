@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 36 44% 97%;
+    --foreground: 26 33% 19%;
+    --card: 0 0% 100%;
+    --border: 27 26% 83%;
+    --primary: 22 44% 38%;
+    --muted-foreground: 24 19% 42%;
+    --accent: 33 49% 90%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    margin: 0;
+    background:
+      radial-gradient(circle at 20% 10%, hsl(var(--accent) / 0.5), transparent 35%),
+      radial-gradient(circle at 80% 25%, hsl(var(--primary) / 0.22), transparent 35%),
+      linear-gradient(145deg, hsl(var(--background)) 0%, #fff9f3 50%, #f8eadf 100%);
+  }
+}
+
+@layer utilities {
+  .number-font {
+    font-family: "Cinzel", serif;
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+}
