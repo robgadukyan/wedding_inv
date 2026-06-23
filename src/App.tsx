@@ -110,14 +110,14 @@ export default function App() {
   <Ornament />
 
   <section className="px-6 py-2 text-center">
-<p className="mx-auto max-w-2xl text-center text-lg italic font-light leading-relaxed text-foreground md:text-xl">
-  Սիրով հրավիրում ենք ձեզ մասնակցելու
-  <br />
-  <span className="inline-flex items-center justify-center gap-2">
-    Մեր հարսանեկան արարողությանը
-    <Heart className="h-5 w-5 fill-[#C3A795] text-[#C3A795] md:h-6 md:w-6" />
-  </span>
-</p>
+    <p className="mx-auto max-w-2xl text-center text-lg italic font-light leading-relaxed text-foreground md:text-xl">
+      Սիրով հրավիրում ենք ձեզ մասնակցելու
+      <br />
+      <span className="inline-flex items-center justify-center gap-2">
+        Մեր հարսանեկան արարողությանը
+        <Heart className="h-5 w-5 fill-[#C3A795] text-[#C3A795] md:h-6 md:w-6" />
+      </span>
+    </p>
   </section>
 
       <section className="px-6 py-8">
@@ -168,7 +168,7 @@ export default function App() {
 
       <section className="px-6 py-0">
         <div className="mx-auto max-w-xl space-y-6 text-center">
-          <h2 className="text-2xl font-light italic text-foreground md:text-3xl">Հարսանյաց հանդեսին մնացել է</h2>
+          <h2 className="text-xl font-light italic text-foreground md:text-2xl">Հարսանյաց հանդեսին մնացել է</h2>
           <div className="flex items-start justify-center gap-3 md:gap-6">
             <CountdownUnit value={timeLeft.days} label="Օր" />
             <span className="mt-3 text-lg text-primary/40 md:mt-4 md:text-2xl">:</span>
