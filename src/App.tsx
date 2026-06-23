@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Calendar, Church, Clock, Heart, Home, MapPin, UtensilsCrossed } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Calendar, Church, Clock, Heart, Home, MapPin, Music, Music2, UtensilsCrossed } from "lucide-react";
 
 const WEDDING_DATE = new Date("2026-09-05T14:30:00");
 const HERO_BG = "url('/assets/hero.jpg'), url('/assets/placeholder-hero.svg')";
@@ -68,6 +68,27 @@ const Ornament = () => (
 
 export default function App() {
   const timeLeft = useCountdown(WEDDING_DATE);
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [playing, setPlaying] = useState(false);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    audio.volume = 0.5;
+    audio.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
+  }, []);
+
+  const toggleMusic = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (playing) {
+      audio.pause();
+      setPlaying(false);
+    } else {
+      audio.play().then(() => setPlaying(true));
+    }
+  };
+
   const applyGalleryFallback = (event: React.SyntheticEvent<HTMLImageElement>) => {
     const image = event.currentTarget;
     image.onerror = null;
@@ -76,6 +97,17 @@ export default function App() {
 
   return (
 <div className="min-h-screen bg-background pb-8" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+  <audio ref={audioRef} src="/assets/song.mp3" loop preload="auto" />
+
+  <button
+    onClick={toggleMusic}
+    aria-label={playing ? "Pause music" : "Play music"}
+    className="fixed bottom-5 right-5 z-50 flex h-11 w-11 items-center justify-center rounded-full border border-primary/30 bg-card/90 shadow-lg backdrop-blur transition hover:bg-accent"
+  >
+    {playing
+      ? <Music className="h-5 w-5 text-primary" />
+      : <Music2 className="h-5 w-5 text-muted-foreground" />}
+  </button>
   <section className="relative flex h-[76vh] min-h-[560px] flex-col items-center justify-center overflow-hidden px-6 py-20 md:h-[86vh]">
     <div
       className="absolute inset-0 bg-cover bg-center bg-no-repeat"
