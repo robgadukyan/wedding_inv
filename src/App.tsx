@@ -110,7 +110,7 @@ export default function App() {
   <Ornament />
 
   <section className="px-6 py-2 text-center">
-<p className="mx-auto max-w-2xl text-center text-xl italic font-light leading-relaxed text-foreground md:text-2xl">
+<p className="mx-auto max-w-2xl text-center text-lg italic font-light leading-relaxed text-foreground md:text-xl">
   Սիրով հրավիրում ենք ձեզ մասնակցելու
   <br />
   <span className="inline-flex items-center justify-center gap-2">
@@ -281,10 +281,15 @@ export default function App() {
                   <span className={`${NUMBER_FONT_CLASS} text-4xl font-bold text-primary md:text-6xl`}>14։30</span>
                 </div>
 
-                <div className={LOCATION_ROW_CLASS}>
-                  <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-primary/70" />
-                  <span className="font-medium">Սուրբ Զորավոր Աստվածածին Եկեղեցի</span>
-                </div>
+              <div className={LOCATION_ROW_CLASS}>
+  <MapPin className="mt-1 h-5 w-5 shrink-0 text-primary/70" />
+
+  <span className="font-medium leading-snug">
+    Սուրբ Զորավոր Աստվածածին
+    <br />
+    Եկեղեցի
+  </span>
+</div>
 
                 <a
                   href={MAP_LINKS.church}
@@ -305,7 +310,7 @@ export default function App() {
               </div>
 
               <h3 className="text-xl font-medium tracking-wide md:text-2xl" style={{ fontFamily: "'Cinzel', serif" }}>
-                Ընդունելություն
+                Հյուրերի դիմավորում
               </h3>
 
               <div className="space-y-3">
@@ -317,9 +322,7 @@ export default function App() {
 
                 <div className={LOCATION_ROW_CLASS}>
                   <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-primary/70" />
-                  <span className="font-medium">
-                   Օջախ ռեստորան, Կոտայք
-                  </span>
+                  <span className="font-medium">Օջախ ռեստորան, Կոտայք</span>
                 </div>
 
                 <a
@@ -338,21 +341,15 @@ export default function App() {
 
       <Ornament />
 
-      <section className="px-6 py-14">
+      <section className="px-6 py-0">
         <div className="mx-auto max-w-md space-y-6 text-center">
-          <div className="space-y-2">
-            <p className="text-xs uppercase tracking-[0.4em] text-foreground font-bold md:text-sm" style={{ fontFamily: "'Cinzel', serif" }}>
-              Խնդրում ենք պատասխանել
-            </p>
-          </div>
-
           <p className="text-lg font-light text-foreground">
-            Մենք ուրախ կլինենք նշել այս հատուկ օրը ձեզ հետ։ Խնդրում ենք տեղեկացնել՝ կարո՞ղ եք մասնակցել։
+            Մենք ուրախ կլինենք նշել այս հատուկ օրը ձեզ հետ։ Խնդրում ենք հաստատել մասնակցությունը մինչև օգոստոսի 20-ը։
           </p>
         </div>
       </section>
 
-      <footer className="border-t border-border px-6 py-10 text-center">
+      <footer className=" px-6 py-10 text-center">
         <div className="mb-3 flex items-center justify-center gap-3">
           <div className="h-px w-12 bg-border" />
           <Heart className="h-3 w-3 fill-primary text-primary" />
