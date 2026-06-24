@@ -166,7 +166,8 @@ export default function App() {
           <div className="h-px w-16 bg-white/40" />
         </div>
 
-        <h1 className="text-6xl font-light leading-none text-white drop-shadow-lg md:text-8xl" style={{ fontFamily: "'Great Vibes', cursive" }}>
+        <h1  className="-translate-y-7 text-6xl font-light leading-none text-white drop-shadow-lg md:text-8xl"
+  style={{ fontFamily: "'Great Vibes', cursive" }}>
           Ելենա
         </h1>
       </div>
