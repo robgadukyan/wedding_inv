@@ -104,6 +104,21 @@ export default function App() {
   const timeLeft = useCountdown(WEDDING_DATE);
   const audioRef = useRef<HTMLAudioElement>(null);
   const [playing, setPlaying] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const clearLoading = () => {
+      window.setTimeout(() => setIsLoading(false), 700);
+    };
+
+    if (document.readyState === "complete") {
+      clearLoading();
+      return;
+    }
+
+    window.addEventListener("load", clearLoading, { once: true });
+    return () => window.removeEventListener("load", clearLoading);
+  }, []);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -131,6 +146,21 @@ export default function App() {
 
   return (
 <div className="min-h-screen bg-background pb-8" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+  <div
+    className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#f7efe6] transition-opacity duration-700 ${
+      isLoading ? "opacity-100" : "pointer-events-none opacity-0"
+    }`}
+    aria-hidden={!isLoading}
+  >
+    <p className="text-5xl text-primary md:text-7xl" style={{ fontFamily: "'Great Vibes', cursive" }}>Ռոբերտ &amp; Ելենա</p>
+    <div className="mt-4 flex items-center justify-center gap-3">
+      <div className="h-px w-14 bg-primary/40" />
+      <Heart className="h-4 w-4 fill-primary/70 text-primary/70" />
+      <div className="h-px w-14 bg-primary/40" />
+    </div>
+    <p className="mt-4 text-xs uppercase tracking-[0.35em] text-primary/70 number-font">Wedding Invitation</p>
+  </div>
+
   <audio ref={audioRef} src="/assets/song.mp3" loop preload="auto" />
 
   <button
